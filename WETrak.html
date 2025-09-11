@@ -1,0 +1,137 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>WETrak</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/project.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	</head>
+
+	<body>
+		<div id="wrapper_all">
+
+			<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- One -->
+				<section id="one">
+					<div class="container">
+						<header class="major">
+							<h2>WETrak</h2>
+						</header>
+						<h1>Finger Tracking Using Wrist-Worn EMG Sensors</h1>
+					</div>
+				</section>
+
+				<!-- Two -->
+				<h3>Overview</h3>
+				<section id="two">
+					<div class="container">
+						<p>This paper introduces WETrak, a finger tracking system using wrist-worn electromyography (EMG) sensors. Recent finger tracking methods mainly employ EMGs on armbands. Compared to a range of contactless methods using cameras or wireless, they are not limited by high computational costs, privacy concerns, and mobility, while unlike other wearable-based approaches, they do not require the deployment of sensors on the user's hands. However, users need to wear an additional armband on their forearm each time solely for tracking purpose, which hinders the widespread adoption of finger tracking in practice. This paper investigates the feasibility of moving EMG sensors from the forearm to the wrist for finger tracking. WETrak inherits the advantages of existing EMG-based armband tracking while avoiding the limitation of requiring additional armbands, which brings a strong incentive for integrating EMG sensors into wrist-worn wearables in the future. As sensor placement varies, we find new challenges in determing good locations to place sensors to gather useful information to capture all finger movements and using low-quality signals to still ensure accurate tracking. In this paper, we introduce new, efficient solutions to these problems.  We develop a prototype, and the results show that WETrak outperforms the state-of-the-art method and performs consistently well under various settings.</p>
+					</div>
+				</section>
+
+				<!-- Six -->
+				<h3>Demo Video</h3>
+				<section id="six">
+					<div class="container">
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/9CdIGp4eFiA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					</div>
+				</section>
+
+				<!-- Three -->
+				<h3>Feasibility of Finger Tracking with Wrist-worn EMGs</h3>
+				<section id="three">
+				  <div class="container">
+				    <div class="features">
+				      <article>
+				        <a href="#" class="image"><img src="images/WETrak_muscle.jpg" alt="" /></a>
+				        <div class="inner">
+				          <ul>
+				            <li><i class="icon-li icon-ok"></i>
+				              <b>Observations</b>. Although the amount of muscles in the wrist is smaller, we have carefully studied the function of each muscle on the user's arm and found that the movements of all our fingers are completely covered by five muscles. Fortunately, these muscles can be sensed from the surface of the wrist. They are the extensor digiti minimi (M1), the extensor digitorum (M2), the pollicis muscle group (M3), the flexor pollicis longus (M4), and the flexor digitorum superficialis (M5), as shown in Fig. 4(a-b). On the other hand, we also observed that each finger is mainly associated with two of M1–M5, as follows:
+				              <ul>
+				                <li><b>Thumb</b>: M3 and M4. <b>Pinky</b>: M1 and M5.</li>
+				                <li><b>Index, middle</b>, and <b>ring</b> fingers: M2 and M5.</li>
+				              </ul>
+				              To experimentally understand these observations, we use five EMG sensors, denoted as channels C1 to C5, placed on the muscles of M1 to M5, respectively, and then we perform three feasibility study trials. The following figure shows the results.
+				            </li>
+				          </ul>
+				        </div>
+
+				        <a href="#" class="image"><img src="images/WETrak_study.jpg" alt="" /></a>
+				        <div class="inner">
+				          <ul>
+				            <li><i class="icon-li icon-ok"></i>
+				              <b>Results</b>. When the user moves only the thumb, we can see that channels C3 and C4 exhibit dominant responses. Since the stretching and contracting of the muscles are not completely isolated, the movement of each finger also activates other muscles, thus generating certain signals. Likewise, when only the pinky moves, C1 and C5 show the strongest signals, while the other three channels also show some response. Finally, when the index, middle or ring finger (or a combination of them) is moved, the main responses come from channels C2 and C5. In summary, this feasibility experiment provides three important insights to guide our design in the next subsection.
+				              <ul>
+				                <li><b>Sensor placement:</b> Unlike uniform placement on the armband, EMG sensors should be aligned with the location of the muscles M1–M5 at the wrist. Fig. 1(c) shows our deployment location, where we set C2 as the anchor point. C1 and C3-C5 should be closer to C2, offsets by 10°, 8°, 28° and 36° from a uniformly placed position, respectively.</li>
+				                <li><b>Finger groups:</b> Based on the relationship of each finger to its most relevant muscles, the five fingers can be divided into three groups, with the thumb and pinky each as one group, and the remaining three as a third group. Since the characteristics of EMG signals mapped to corresponding finger movements vary within different groups, we will later leverage this property to guide our tracking design.</li>
+				                <li><b>Sensing signals:</b> Since the stretching or contracting of muscles is not completely isolated, when a finger is moved, the most relevant muscles will have strong responses, and other muscles usually also generate certain signals.We will use this opportunity to further improve performance.</li>
+				              </ul>
+				            </li>
+				          </ul>
+				        </div>
+
+				      </article>
+				    </div>
+				  </div>
+				</section>
+
+				<!-- Four -->
+				<h3>Design</h3>
+				<section id="four">
+				  <div class="container">
+				    <div class="features">
+				      <article>
+				        <a href="#" class="image"><img src="images/WETrak_design.jpg" alt="" /></a>
+				      </article>
+				    </div>
+				  </div>
+				</section>
+
+
+				<!-- Seven -->
+				<h3>Publication</h3>
+				<section id="seven">
+					<div class="container">
+						<h5>Finger Tracking Using Wrist-Worn EMG Sensors</h5>
+						<p><b>Jiani Cao</b>, Yang Liu, Lixiang Han, Zhenjiang Li</p>
+						<p>IEEE Transactions on Mobile Computing (TMC), 2024</p>
+						<a href="https://ieeexplore.ieee.org/document/10623717"><b>[<font color=#6495ED>Paper</font>]</b></a>
+						<a href="https://github.com/Jiani-CAO/WETrak"><b>[<font color=#6495ED>Code</font>]</b></a>
+						<a href="slides/2024-TMC-WETrak-slides.pdf"><b>[<font color=#6495ED>Slides</font>]</b></a>
+					</div>
+				</section>
+
+				<!-- Eight -->
+				<h3>Cite WETrak</h3>
+				<section id="eight">
+					<div class="container">
+						<p>@article{cao2024WETrak,</br>
+						  title={Finger Tracking Using Wrist-Worn EMG Sensors},</br>
+						  author={Cao, Jiani and Liu, Yang and Han, Lixiang and Li, Zhenjiang},</br>
+						  journal={IEEE Transactions on Mobile Computing},</br>
+						  year={2024}</br>
+						}
+						</p>
+					</div>
+				</section>
+				
+			</div>
+		
+		</div>
+
+			<!-- Scripts -->
+			<script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollzer.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
